@@ -20,4 +20,5 @@ Route::get('/', function () {
 Route::prefix('auth')->group(function () {
     Route::post('/login', \App\Http\Controllers\Auth\LoginController::class);
     Route::post('/logout', \App\Http\Controllers\Auth\LogoutController::class);
+    Route::post('/register', \App\Http\Controllers\Auth\RegisterController::class);
 });
