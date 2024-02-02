@@ -22,3 +22,9 @@ Route::middleware('auth:sanctum')->prefix('/v1')->group(function () {
     Route::apiResource('/tasks', \App\Http\Controllers\Api\V1\TaskController::class);
     Route::patch('/tasks/{task}/complete', \App\Http\Controllers\Api\V1\CompleteTaskController::class);
 });
+
+Route::prefix('auth')->group(function () {
+    Route::post('/login', \App\Http\Controllers\Api\Auth\LoginController::class);
+    Route::post('/logout', \App\Http\Controllers\Api\Auth\LogoutController::class)->middleware('auth:sanctum');
+    Route::post('/register', \App\Http\Controllers\Api\Auth\RegisterController::class);
+});
